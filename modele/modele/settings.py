@@ -80,7 +80,7 @@ DATABASES = {
         'NAME':'drive',
         'HOST':'127.0.0.1',
         'USER':'root',
-        'PASSWORD':'toto',
+        'PASSWORD':'',
         'PORT':'3306',
 }
 }
