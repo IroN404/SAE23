@@ -3,5 +3,6 @@ from . import models
 
 # Create your views here.
 
-def index(request):
-    return render(request,"drive/index.html")
+def home(request):
+    categories = list(models.categories.objects.all())
+    return render(request, "drive/index.html", {"liste":categories})
