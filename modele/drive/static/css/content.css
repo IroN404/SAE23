@@ -1,0 +1,17 @@
+*{
+margin: 0;
+padding:0;
+font-family: 'Roboto', sans-serif;
+}
+
+
+
+.avform{
+padding:3vh;
+margin-top:3vh;
+margin-left:20vh;
+margin-right:20vh;
+padding-left:30vh;
+background-color: rgba(0, 0, 0, .8);
+color:#fff;
+}
