@@ -28,18 +28,7 @@
                 <a href="#">About</a>
             </div>
         </div>
-        <script type="text/javascript" src="{%static 'js/mobile_view.js' %}"></script>
 
-    <section class="avform">
-                <form method="post" action="/visite/traitementmonuments/">
-            {% csrf_token %} <!-- code permettant de protéger votre application en évitant
-de rejouer un formulaire avec des droits différents -->
-            <table>
-                {{ form.as_table }} <!-- permet d'afficher tous les champs sous forme d'une liste
--->         </table>
-            <input type="submit" value="envoyer les données"\>
-        </form>
-        </form>
     </section>
 
 </body>
