@@ -2,7 +2,7 @@ from django.db import models
 
 
 #CATEGORIE----------------------------------------------------------------
-class categories(models.Model):
+class categorie(models.Model):
     nom = models.CharField(max_length=100)
     descriptif = models.TextField(null=True, blank=True)
 
@@ -44,8 +44,8 @@ class client(models.Model):
     def dico(self):
         return {"numero_client":self.numero_client, "nom": self.nom, "prenom": self.prenom, "date_inscription": self.date_inscription,"adresse": self.adresse}
 
-#COMMANDES----------------------------------------------------------------
-class commandes(models.Model):
+#COMMANDE----------------------------------------------------------------
+class commande(models.Model):
     numero_commande = models.CharField(max_length=100)
     client = models.ForeignKey("client", on_delete=models.CASCADE, default=None)
     date = models.DateField(blank=False, null=True)
@@ -59,14 +59,14 @@ class commandes(models.Model):
 
 
 #LISTEPRODUITS--------------------------------------------------------------
-class listeproduits(models.Model):
+class listeproduit(models.Model):
 
-    commandes = models.ForeignKey("commandes", on_delete=models.CASCADE, default=None)
+    commande = models.ForeignKey("commandes", on_delete=models.CASCADE, default=None)
     quantite = models.CharField(max_length=100)
-    produits = models.ForeignKey("produits", on_delete=models.CASCADE, default=None)
+    produit = models.ForeignKey("produits", on_delete=models.CASCADE, default=None)
 
     def __str__(self):
-        return self.commandes
+        return self.commande
 
     def dico(self):
-        return {"commandes": self.commandes, "quantite": self.quantite, "produits": self.produits}
+        return {"commandes": self.commande, "quantite": self.quantite, "produits": self.produit}

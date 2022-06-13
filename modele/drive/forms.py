@@ -2,62 +2,61 @@ from django.forms import ModelForm
 from django.utils.translation import gettext_lazy as _
 from . import models
 
+
+#CLIENT----------------------------------------------------------------
 class clientform(ModelForm):
     class Meta:
         model = models.client
         fields = ('nom','prenom', 'date_inscription','adresse')
         labels = {
-            'nom': 'nom',
-            'prenom' : 'prenom',
-            'date_inscription' : 'date de inscription' ,
-            'adresse' : 'adresse',
+            'nom': _('Nom'),
+            'prenom' : _('Prénom'),
+            'adresse' : _('Adresse'),
         }
 
-
-        localized_fields = ('date_inscription',)
-
-
-class categoriesform(ModelForm):
+#Categorie-------------------------------------------------------------
+class categorieform(ModelForm):
     class Meta:
-        model = models.categories
+        model = models.categorie
         fields = ('nom','descriptif')
         labels = {
-            'nom' : 'nom',
-            'descriptif' : 'descriptif',
+            'nom' : _('Nom'),
+            'descriptif' : _('Descriptif'),
 
         }
 
-
+#PRODUITS--------------------------------------------------------------
 class prduitsform(ModelForm):
     class Meta:
         model = models.produits
-        fields = ('idproduit','nom','date_peremption', 'photos','marques','auteur','categories')
+        fields = ('nom','date_peremption', 'photo','marque','auteur','categorie')
         labels = {
-            'idproduit' : 'idproduit',
-            'nom': 'nom',
-            'date_peremption' : 'date de peremption',
-            'photos' : 'photos' ,
-            'marques' : 'marques',
-            'auteur': 'auteur',
-            'categories': 'categories'
+            'nom': _('Nom'),
+            'date_peremption' : _('Date de péremption'),
+            'photo' : _('Photo') ,
+            'marque' : _('Marque'),
+            'auteur': _('Auteur'),
+            'categorie': _('categorie'),
         }
 
+#COMMANDES---------------------------------------------------------------
 class commandesform(ModelForm):
     class Meta:
-        model = models.commandes
-        fields = ('numcommande','client','date')
+        model = models.commande
+        fields = ('numero_commande','client','date')
         labels = {
-            'numcommande' : 'numcommande',
-            'client': 'client',
-            'date' : 'date'
+            'numero_commande' : _('Numéro de commande'),
+            'client': _('Client'),
+            'date' : _('Date'),
         }
 
-class listeproduitsform(ModelForm):
+#LISTEPRODUITS-------------------------------------------------------------
+class listeproduitform(ModelForm):
     class Meta:
-        model = models.listeproduits
-        fields = ('commandes','quantite','produits')
+        model = models.listeproduit
+        fields = ('commande','quantite','produit')
         labels = {
-            'commandes' : 'commande',
-            'quantite': 'quantite',
-            'produits' : 'produit'
+            'commandes' : _('Commande'),
+            'quantite': _('Quantitée'),
+            'produit' : _('Produit'),
         }
