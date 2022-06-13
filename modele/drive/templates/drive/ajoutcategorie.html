@@ -9,10 +9,9 @@
 </head>
 <body>
     <header>
-        <a class="logo" href="/"><img src="{%static 'image/logo.svg' %}" alt="logo"></a>
             <nav>
                 <ul class="nav_links">
-                    <li><a href="drive\ajoutcategorie">Categories</a></li>
+                    <li><a href="#">Services</a></li>
                     <li><a href="#">Courses</a></li>
                     <li><a href="#">A propos</a></li>
                 </ul>
@@ -29,5 +28,13 @@
             </div>
         </div>
         <script type="text/javascript" src="{%static 'js/mobile_view.js' %}"></script>
+
+<form method="post" action="">
+        {% csrf_token %} <!-- code permettant de protéger votre application en évitant
+de rejouer un formulaire avec des droits différents -->
+        {{ form.as_ul }} <!-- permet d'afficher tous les champs sous forme d'une liste
+-->
+        <input type="submit" value="Envoyer la requête"\>
+    </form>
 </body>
 </html>

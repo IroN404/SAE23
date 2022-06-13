@@ -2,8 +2,7 @@ from django.db import models
 
 
 
-class categories(models.Model):  # déclare la classe Lieu héritant de la classe Model, classe de base des modèles
-    idcate = models.CharField(max_length=100)  # défini un champs de type texte de 100 caractères maximum
+class categories(models.Model):  # déclare la classe Lieu héritant de la classe Model, classe de base des modèles  # défini un champs de type texte de 100 caractères maximum
     nom = models.CharField(max_length=100)
     descriptif = models.CharField(max_length=100)
 
@@ -16,8 +15,7 @@ class categories(models.Model):  # déclare la classe Lieu héritant de la class
         return {"categorie": self.idcate, "nom_cat": self.nom, "descriptif": self.descriptif}
 
 
-class client(models.Model):  # déclare la classe Lieu héritant de la classe Model, classe de base des modèles
-    idclient = models.CharField(max_length=100)  # défini un champs de type texte de 100 caractères maximum
+class client(models.Model):  # déclare la classe Lieu héritant de la classe Model, classe de base des modèles  # défini un champs de type texte de 100 caractères maximum
     nom = models.CharField(max_length=100)
     prenom = models.CharField(max_length=100 ,default = None)
     date_inscripion = models.DateField(blank=True, null=True)   # champs de type date, pouvant être null ou ne pas être rempli
