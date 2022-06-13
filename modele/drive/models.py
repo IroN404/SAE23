@@ -70,4 +70,3 @@ class listeproduits(models.Model):
 
     def dico(self):
         return {"commandes": self.commandes, "quantite": self.quantite, "produits": self.produits}
-
