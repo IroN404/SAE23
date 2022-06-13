@@ -3,6 +3,7 @@
 <head>
     {% load static %}
     <link rel="stylesheet" href="{%static 'css/header.css' %}">
+    <link rel="stylesheet" href="{%static 'css/content.css' %}">
     <link rel="icon" href="{%static 'favicon/favicon.ico' %}">
     <meta charset="UTF-8">
     <title>{% block title %}Page d'Acceuil{% endblock %}</title>
@@ -28,8 +29,9 @@
                 <a href="#">About</a>
             </div>
         </div>
-
-    </section>
-
+        <script type="text/javascript" src="{%static 'js/mobile_view.js' %}"></script>
+        <div class="frontpage">
+            <img src="{%static 'image/front.png' %}" alt="front-page image">
+        </div>
 </body>
 </html>
