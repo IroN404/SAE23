@@ -128,3 +128,7 @@ header {
     display: initial;
   }
 }
+.frontpage{
+    display:flex;
+    justify-content:center;
+}
