@@ -13,7 +13,7 @@
         <a class="logo" href="/"><img src="{%static 'image/logo.svg' %}" alt="logo"></a>
             <nav>
                 <ul class="nav_links">
-                    <li><a href="drive\ajoutcategorie">Categories</a></li>
+                    <li><a href="/drive/ajout/">Categories</a></li>
                     <li><a href="#">Courses</a></li>
                     <li><a href="#">A propos</a></li>
                 </ul>
@@ -29,9 +29,15 @@
                 <a href="#">About</a>
             </div>
         </div>
+{% block content %}
+
+{% endblock %}
+
         <script type="text/javascript" src="{%static 'js/mobile_view.js' %}"></script>
         <div class="frontpage">
             <img src="{%static 'image/front.png' %}" alt="front-page image">
         </div>
+
+
 </body>
 </html>

@@ -1,0 +1,17 @@
+{% extends "drive/index.html" %}
+
+{% block title %}404{% endblock title %}
+
+{% block content %}
+    <section class="avform">
+        <form method="post" action="/drive/traitement/">
+            {% csrf_token %} <!-- code permettant de protéger votre application en évitant
+de rejouer un formulaire avec des droits différents -->
+            <table>
+                {{ form.as_table }} <!-- permet d'afficher tous les champs sous forme d'une liste
+-->         </table>
+            <input type="submit" value="envoyer les données"\>
+        </form>
+    </section>
+
+{% endblock %}
