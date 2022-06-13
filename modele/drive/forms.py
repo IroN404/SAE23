@@ -2,7 +2,7 @@ from django.forms import ModelForm
 from django.utils.translation import gettext_lazy as _
 from . import models
 
-class clientform(ModelForm):
+class Clientform(ModelForm):
     class Meta:
         model = models.client
         fields = ('idclient','nom','prenom', 'date_inscription','adresse')
