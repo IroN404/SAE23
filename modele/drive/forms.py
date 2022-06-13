@@ -26,9 +26,9 @@ class categorieform(ModelForm):
         }
 
 #PRODUITS--------------------------------------------------------------
-class prduitsform(ModelForm):
+class prduitform(ModelForm):
     class Meta:
-        model = models.produits
+        model = models.produit
         fields = ('nom','date_peremption', 'photo','marque','auteur','categorie')
         labels = {
             'nom': _('Nom'),
@@ -40,7 +40,7 @@ class prduitsform(ModelForm):
         }
 
 #COMMANDES---------------------------------------------------------------
-class commandesform(ModelForm):
+class commandeform(ModelForm):
     class Meta:
         model = models.commande
         fields = ('numero_commande','client','date')
@@ -56,7 +56,7 @@ class listeproduitform(ModelForm):
         model = models.listeproduit
         fields = ('commande','quantite','produit')
         labels = {
-            'commandes' : _('Commande'),
+            'commande' : _('Commande'),
             'quantite': _('Quantitée'),
             'produit' : _('Produit'),
         }

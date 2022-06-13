@@ -14,13 +14,13 @@ class categorie(models.Model):
 
 
 #PRODUITS----------------------------------------------------------------
-class produits(models.Model):
+class produit(models.Model):
     nom = models.CharField(max_length=100)
     date_peremption = models.DateField(blank=True, null=True)
-    photos = models.ImageField(upload_to ='/media/')
-    marques = models.CharField(max_length=100)
+    photo = models.ImageField(upload_to ='/media/')
+    marque = models.CharField(max_length=100)
     auteur = models.CharField(max_length=100)
-    categories = models.ForeignKey("categories", on_delete=models.CASCADE, default=None)
+    categorie = models.ForeignKey("categorie", on_delete=models.CASCADE, default=None)
 
     def __str__(self):
         chaine = f"{self.nom} de {self.marques}, périme le {self.date_peremption}. Catégorie : {self.categories}"
@@ -61,12 +61,12 @@ class commande(models.Model):
 #LISTEPRODUITS--------------------------------------------------------------
 class listeproduit(models.Model):
 
-    commande = models.ForeignKey("commandes", on_delete=models.CASCADE, default=None)
+    commande = models.ForeignKey("commande", on_delete=models.CASCADE, default=None)
     quantite = models.CharField(max_length=100)
-    produit = models.ForeignKey("produits", on_delete=models.CASCADE, default=None)
+    produit = models.ForeignKey("produit", on_delete=models.CASCADE, default=None)
 
     def __str__(self):
         return self.commande
 
     def dico(self):
-        return {"commandes": self.commande, "quantite": self.quantite, "produits": self.produit}
+        return {"commande": self.commande, "quantite": self.quantite, "produits": self.produit}
