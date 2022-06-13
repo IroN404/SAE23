@@ -2,12 +2,11 @@ from django.forms import ModelForm
 from django.utils.translation import gettext_lazy as _
 from . import models
 
-class Clientform(ModelForm):
+class clientform(ModelForm):
     class Meta:
         model = models.client
-        fields = ('idclient','nom','prenom', 'date_inscription','adresse')
+        fields = ('nom','prenom', 'date_inscription','adresse')
         labels = {
-            'idclient' : 'idclient',
             'nom': 'nom',
             'prenom' : 'prenom',
             'date de inscription' : 'date_inscription' ,
@@ -21,9 +20,8 @@ class Clientform(ModelForm):
 class categoriesform(ModelForm):
     class Meta:
         model = models.categories
-        fields = ('idcate','nom','descriptif', 'date_inscription','adresse')
+        fields = ('nom','descriptif')
         labels = {
-            'idcate': 'idcate',
             'nom' : 'nom',
             'descriptif' : 'descriptif',
 
@@ -35,7 +33,7 @@ class prduitsform(ModelForm):
         model = models.produits
         fields = ('idproduit','nom','date_peremption', 'photos','marques','auteur','categories')
         labels = {
-            'idproduit' : 'idclient',
+            'idproduit' : 'idproduit',
             'nom': 'nom',
             'date_peremption' : 'date_peremption',
             'photos' : 'photos' ,
@@ -44,10 +42,10 @@ class prduitsform(ModelForm):
             'categories': 'categories'
         }
 
-class commandes(ModelForm):
+class commandesform(ModelForm):
     class Meta:
-        model = models.produits
-        fields = ('numcommande','client','date', 'photos','marques','auteur','categories')
+        model = models.commandes
+        fields = ('numcommande','client','date')
         labels = {
             'numcommande' : 'numcommande',
             'client': 'client',
@@ -57,9 +55,9 @@ class commandes(ModelForm):
 class listeproduitsform(ModelForm):
     class Meta:
         model = models.listeproduits
-        fields = ('commande','quantite','produit')
+        fields = ('commandes','quantite','produits')
         labels = {
-            'commande' : 'commande',
+            'commandes' : 'commande',
             'quantite': 'quantite',
-            'produit' : 'produit'
+            'produits' : 'produit'
         }

@@ -1,7 +1,7 @@
-from django.http import HttpResponseRedirect
-from .forms import Clientform
 from django.shortcuts import render
-
+from .forms import clientform
+from django.http import HttpResponseRedirect
+from . import models
 # Create your views here.
 
 def home(request):
@@ -9,7 +9,7 @@ def home(request):
     return render(request, "drive/index.html", {"liste":categories})
 
 def traitementupdate(request, id):
-    lform = Clientform(request.POST)
+    lform = clientform(request.POST)
     if lform.is_valid():
         commandes = lform.save(commit=False)
         commandes.id = id;

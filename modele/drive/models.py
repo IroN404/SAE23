@@ -18,18 +18,17 @@ class categories(models.Model):  # déclare la classe Lieu héritant de la class
 class client(models.Model):  # déclare la classe Lieu héritant de la classe Model, classe de base des modèles  # défini un champs de type texte de 100 caractères maximum
     nom = models.CharField(max_length=100)
     prenom = models.CharField(max_length=100 ,default = None)
-    date_inscripion = models.DateField(blank=True, null=True)   # champs de type date, pouvant être null ou ne pas être rempli
+    date_inscription = models.DateField(blank=True, null=True)   # champs de type date, pouvant être null ou ne pas être rempli
     adresse = models.CharField(max_length=100)  # champs de type entier devant être obligatoirement rempli
 
 
 
     def __str__(self):
-        chaine = str(f"Client {self.idclient} {self.prenom} est inscris depuis le {self.date_inscripion} a  l'adresse {self.adresse}.")
+        chaine = str(f"Client {self.nom} {self.prenom} est inscris depuis le {self.date_inscription} a  l'adresse {self.adresse}.")
         return chaine
 
     def dico(self):
-        return {"idclient": self.idclient, "nom": self.nom, "prenom": self.prenom, "date_inscripion": self.date_inscripion,
-                "adresse": self.adresse}
+        return { "nom": self.nom, "prenom": self.prenom, "date_inscription": self.date_inscription,"adresse": self.adresse}
 
 
 
@@ -70,8 +69,8 @@ class listeproduits(models.Model):
   produits = models.ForeignKey("produits", on_delete=models.CASCADE, default=None)
 
   def __str__(self):
-       return self.commande
+       return self.commandes
 
   def dico(self):
-      return {"numcommande": self.commande, "quantite": self.quantite, "produit": self.produit}
+      return {"commandes": self.commandes, "quantite": self.quantite, "produits": self.produits}
 
