@@ -9,7 +9,7 @@ class clientform(ModelForm):
         labels = {
             'nom': 'nom',
             'prenom' : 'prenom',
-            'date de inscription' : 'date_inscription' ,
+            'date_inscription' : 'date de inscription' ,
             'adresse' : 'adresse',
         }
 
@@ -35,7 +35,7 @@ class prduitsform(ModelForm):
         labels = {
             'idproduit' : 'idproduit',
             'nom': 'nom',
-            'date_peremption' : 'date_peremption',
+            'date_peremption' : 'date de peremption',
             'photos' : 'photos' ,
             'marques' : 'marques',
             'auteur': 'auteur',

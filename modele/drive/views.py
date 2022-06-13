@@ -1,36 +1,37 @@
-from django.shortcuts import render
-from .forms import clientform
 from django.http import HttpResponseRedirect
+from .forms import clientform
+from django.shortcuts import render
 from . import models
+
 # Create your views here.
 
 def home(request):
-    categories = list(models.categories.objects.all())
-    return render(request, "drive/index.html", {"liste":categories})
+    client = list(models.client.objects.all())
+    return render(request, "drive/index.html", {"liste":client})
 
 def traitementupdate(request, id):
     lform = clientform(request.POST)
     if lform.is_valid():
-        commandes = lform.save(commit=False)
-        commandes.id = id;
-        commandes.save()
+        client = lform.save(commit=False)
+        client.id = id;
+        client.save()
         return HttpResponseRedirect("/drive/")
     else:
-        return render(request, "commandes/update.html", {"form": lform, "id": id})
+        return render(request, "clients/update.html", {"form": lform, "id": id})
 
 def delete(request, id):
-    lieu = models.Lieu.objects.get(pk=id)
-    lieu.delete()
-    return HttpResponseRedirect("/visite/")
+    client = models.cleint.objects.get(pk=id)
+    client.delete()
+    return HttpResponseRedirect("/drive/")
 
 def ajout(request):
     if request.method == "POST":
-        form = LieuForm(request)
+        form = clientform(request)
         if form.is_valid():
-            lieu = form.save()
-            return HttpResponseRedirect("/visite/")
+            client = form.save()
+            return HttpResponseRedirect("/drive/")
         else:
-            return render(request,"visite/ajout.html",{"form": form})
+            return render(request,"drive/ajoutclient.html",{"form": form})
     else :
-        form = LieuForm()
-        return render(request,"visite/ajout.html",{"form" : form})
+        form = clientform()
+        return render(request,"drive/ajoutclient.html",{"form" : form})
